@@ -1,10 +1,9 @@
 from logical_classes import *
 from kb_and_inference_engine import *
 from read import *
-from abc import ABC, abstractmethod
 import os
 
-class GameMaster(ABC):
+class GameMaster(object):
 
     TXTS_DIRECTORY_PATH='flatfiles'
 
@@ -12,7 +11,6 @@ class GameMaster(ABC):
         self.kb = KnowledgeBase([], [])
         self.moveableQuery = self.produceMovableQuery()
 
-    @abstractmethod
     def produceMovableQuery(self):
         raise NotImplementedError('Subclasses must override produceMovableQuery() '\
             'to provide the query for facts starting with MOVABLE predicate')
